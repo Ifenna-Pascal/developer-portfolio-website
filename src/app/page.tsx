@@ -1,22 +1,29 @@
-import AboutSection from '@/sections/about-section'
-import Contact from '@/sections/contact'
-import Experience from '@/sections/experience'
-import Footer from '@/sections/footer'
-import HeroSection from '@/sections/hero-section'
-import MyProjects from '@/sections/my-projects'
-import Services from '@/sections/services'
-import 'remixicon/fonts/remixicon.css'
+import Preloader from "@/components/Preloader";
+import Nav from "@/sections/Nav";
+import Hero from "@/sections/Hero";
+import About from "@/sections/About";
+import Projects from "@/sections/Projects";
+import Process from "@/sections/Process";
+import Services from "@/sections/Services";
+import Stack from "@/sections/Stack";
+import Experience from "@/sections/Experience";
+import Contact from "@/sections/Contact";
 
 export default function Home() {
   return (
-    <main  className='h-screen'>
-      <HeroSection />
-      <AboutSection />
-       <MyProjects />
-      <Services />
-      <Experience />
-      <Contact />
-      <Footer />
-    </main>
-  )
+    <>
+      <Preloader />
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Process />
+        <Services />
+        <Stack />
+        <Experience />
+        <Contact />
+      </main>
+    </>
+  );
 }

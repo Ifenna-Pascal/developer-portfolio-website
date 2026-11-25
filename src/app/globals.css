@@ -1,22 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@500&family=Montserrat&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-bebas), "Bebas Neue", Impact, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --color-ink: #0b0b0b;
+  --color-paper: #fafaf8;
+  --color-line: #d6d6d2;
+}
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 32,34,36;
-  --background-end-rgb: 255, 255, 255;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+html,
 body {
-  color: rgb(var(--foreground-rgb));
+  background: var(--color-paper);
+}
+body {
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+::selection {
+  background: #0b0b0b;
+  color: #fafaf8;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Hide the system cursor only when the custom one is active (fine pointers). */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+.cursor-el {
+  will-change: transform;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(11 11 11 / 0.5);
+}
+.dark .eyebrow {
+  color: rgb(255 255 255 / 0.5);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 3.5rem;
+  padding: 0 1.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+.btn-primary {
+  background: #0b0b0b;
+  color: #fafaf8;
+}
+.btn-primary:hover {
+  background: #2a2a2a;
+}
+.btn-ghost {
+  border: 1px solid rgb(11 11 11 / 0.25);
+  color: #0b0b0b;
+}
+.btn-ghost:hover {
+  border-color: #0b0b0b;
+}
+.dark .btn-primary {
+  background: #fafaf8;
+  color: #0b0b0b;
+}
+.dark .btn-primary:hover {
+  background: #e4e4e0;
+}
+.dark .btn-ghost {
+  border-color: rgb(255 255 255 / 0.3);
+  color: #fafaf8;
+}
+.dark .btn-ghost:hover {
+  border-color: #fafaf8;
 }
